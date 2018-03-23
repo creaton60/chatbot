@@ -26,4 +26,8 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+
+	compile group: 'com.typesafe.akka', name: 'akka-actor_2.12', version: '2.5.10'
 }
