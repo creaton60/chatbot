@@ -1,6 +1,12 @@
 package com.hello.chatbot.api.configuration;
 
+import akka.actor.ActorSystem;
+import com.hello.chatbot.api.configuration.extension.SpringExtension;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +36,13 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableJpaRepositories(basePackages = {"com.hello.chatbot.api.repository"})
 public class ChatBotConfig extends WebMvcConfigurerAdapter{
-    //TODO: JPA Configuration
+
+    @Autowired
+    private SpringExtension springExtension;
+
+    @Autowired
+    private ApplicationContext applicationContext;
+
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
@@ -86,6 +98,19 @@ public class ChatBotConfig extends WebMvcConfigurerAdapter{
 
         jackson2HttpMessageConverter.setSupportedMediaTypes(mediaTypeList);
         converters.add(jackson2HttpMessageConverter);
+    }
+
+    @Bean
+    public ActorSystem actorSystem(){
+        ActorSystem system = ActorSystem.create("HelloChatBotSystem", akkaConfiguration());
+        springExtension.initialize(applicationContext);
+
+        return system;
+    }
+
+    @Bean
+    public Config akkaConfiguration(){
+        return ConfigFactory.load();
     }
 
 }
