@@ -17,7 +17,7 @@ public class IndexController {
     @Value("${spring.datasource.url}")
     private String dataSource;
 
-    @GetMapping(value = CHATBOT_INDEX)
+    @GetMapping(produces = "application/json" , value = CHATBOT_INDEX)
     public String getServerInfo(HttpServletRequest request) throws UnknownHostException {
 
             StringBuffer returnMessage = new StringBuffer();

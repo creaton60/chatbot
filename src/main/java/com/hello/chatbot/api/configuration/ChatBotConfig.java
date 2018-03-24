@@ -1,5 +1,6 @@
 package com.hello.chatbot.api.configuration;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -52,12 +53,13 @@ public class ChatBotConfig extends WebMvcConfigurerAdapter{
         return properties;
     }
 
+
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean lemfb = new LocalContainerEntityManagerFactoryBean();
         lemfb.setDataSource(dataSource);
         lemfb.setJpaVendorAdapter(jpaVendorAdapter());
-        lemfb.setPackagesToScan("com.ichatt.noriter.api.domain");
+        lemfb.setPackagesToScan("com.hello.chatbot.api.domain");
         lemfb.setJpaProperties(additionalHibernateProperties());
         return lemfb;
     }
