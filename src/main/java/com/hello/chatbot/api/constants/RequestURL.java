@@ -12,6 +12,8 @@ public class RequestURL {
 
     //Event Generate
     public static final String CHATBOT_EVENT_CREATE="/api/{version}/events"; //post
+    public static final String CHATBOT_EVENT_MODIFY="/api/{version}/events";  //put
+    public static final String CHATBOT_EVENT_MENU="/api/{version}/events/menu/{botId}"; //get
 
     //Action Generate
     public static final String CHATBOT_ACTION_CREATE="/api/{version}/actions"; //post

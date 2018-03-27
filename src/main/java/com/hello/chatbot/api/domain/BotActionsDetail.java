@@ -10,7 +10,7 @@ public class BotActionsDetail implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int detailId;
 
-    @ManyToMany(targetEntity = BotActions.class)
+    @OneToOne(targetEntity = BotActions.class)
     @JoinColumn(name = "action_id", nullable = false)
     private BotActions action;
 
