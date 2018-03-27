@@ -11,7 +11,9 @@ import com.hello.chatbot.common.api.builder.card.ApiCardListMessage;
 import com.hello.chatbot.common.api.builder.card.ApiCreateCardDetailMessage;
 import com.hello.chatbot.common.api.builder.card.ApiCreateCardsMessage;
 import com.hello.chatbot.common.api.builder.event.ApiCreateEventMessage;
+import com.hello.chatbot.common.api.builder.event.ApiEventInfoMessage;
 import com.hello.chatbot.common.api.builder.event.ApiEventMenuMessage;
+import com.hello.chatbot.common.api.chat.ApiChatInfoMessage;
 import com.hello.chatbot.common.api.chat.ApiChatReactionMessage;
 import com.hello.chatbot.common.api.error.ApiErrorMessage;
 import org.springframework.http.HttpStatus;
@@ -32,6 +34,8 @@ import org.springframework.http.HttpStatus;
         @JsonSubTypes.Type(value = ApiCreateEventMessage.class, name = ApiMessageType.ApiValues.VALUE_EVENT_CREATE),
         @JsonSubTypes.Type(value = ApiModifyActionMessage.class, name = ApiMessageType.ApiValues.VALUE_EVENT_MODIFY),
         @JsonSubTypes.Type(value = ApiEventMenuMessage.class, name = ApiMessageType.ApiValues.VALUE_EVENT_MENU),
+        @JsonSubTypes.Type(value = ApiEventInfoMessage.class, name = ApiMessageType.ApiValues.VALUE_EVENT_INFO),
+        @JsonSubTypes.Type(value = ApiChatInfoMessage.class, name = ApiMessageType.ApiValues.VALUE_CHAT_INFO),
         @JsonSubTypes.Type(value = ApiChatReactionMessage.class, name = ApiMessageType.ApiValues.VALUE_CHAT_REACTION),
         @JsonSubTypes.Type(value = ApiCreateCardsMessage.class, name = ApiMessageType.ApiValues.VALUE_CARDS_CREATE),
         @JsonSubTypes.Type(value = ApiCardInfoMessage.class, name = ApiMessageType.ApiValues.VALUE_CARDS_INFO),

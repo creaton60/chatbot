@@ -8,5 +8,4 @@ import com.hello.chatbot.common.api.ChatBotApiMessage;
 @JsonTypeName(ApiMessageType.ApiValues.VALUE_BOT_CREATE)
 public class ApiBotCreateMessage extends ChatBotApiMessage{
 
-
 }
