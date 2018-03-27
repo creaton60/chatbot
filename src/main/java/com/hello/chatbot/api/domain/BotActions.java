@@ -1,8 +1,9 @@
 package com.hello.chatbot.api.domain;
 
+import com.hello.chatbot.common.data.BotActionType;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity(name = "cb_actions")
 public class BotActions implements Serializable{

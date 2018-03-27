@@ -1,5 +1,7 @@
 package com.hello.chatbot.api.domain;
 
+import com.hello.chatbot.common.data.CardType;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
