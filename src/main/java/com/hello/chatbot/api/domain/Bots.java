@@ -1,31 +1,32 @@
 package com.hello.chatbot.api.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity(name = "cb_bots")
-public class Bots {
+public class Bots implements Serializable{
 
     @Id
     @Column(name = "bot_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int botId;
 
-    @Column(name = "bot_name")
+    @Column(name = "bot_name", length = 32, nullable = false)
     private String botName;
 
-    @Column(name = "bot_type")
+    @Column(name = "bot_type", length = 16, nullable = false)
     private String botType;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "reg_date")
-    @Temporal(TemporalType.TIME)
     private Date regDate;
 
-    @Column(name = "bot_desc")
+    @Column(name = "bot_desc", length = 50)
     private String desc;
 
-    @Column(name = "subscription")
+    @Column(name="subscrpition", nullable = false, columnDefinition = "int default 0")
     private int subscription;
 
     public int getBotId() {
