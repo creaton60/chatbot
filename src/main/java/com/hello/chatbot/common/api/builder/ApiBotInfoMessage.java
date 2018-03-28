@@ -1,23 +1,23 @@
-package com.hello.chatbot.common.client.bot;
+package com.hello.chatbot.common.api.builder;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.hello.chatbot.common.client.ChatBotClientMessage;
-import com.hello.chatbot.common.client.ClientMessageType;
+import com.hello.chatbot.common.api.ApiMessageType;
+import com.hello.chatbot.common.api.ChatBotApiMessage;
 
-@JsonTypeName(ClientMessageType.ClientValues.VALUE_BOT_MODIFY)
-public class ClientModifyBotMessage extends ChatBotClientMessage{
+@JsonTypeName(ApiMessageType.ApiValues.VALUE_BOT_INFO)
+public class ApiBotInfoMessage extends ChatBotApiMessage{
 
-    @JsonProperty("botId")
+    @JsonProperty("id")
     private int botId;
 
-    @JsonProperty("botType")
-    private String botType;
-
-    @JsonProperty("botName")
+    @JsonProperty("name")
     private String botName;
 
-    @JsonProperty("botDesc")
+    @JsonProperty("type")
+    private String botType;
+
+    @JsonProperty("desc")
     private String botDesc;
 
     public int getBotId() {
@@ -28,20 +28,20 @@ public class ClientModifyBotMessage extends ChatBotClientMessage{
         this.botId = botId;
     }
 
-    public String getBotType() {
-        return botType;
-    }
-
-    public void setBotType(String botType) {
-        this.botType = botType;
-    }
-
     public String getBotName() {
         return botName;
     }
 
     public void setBotName(String botName) {
         this.botName = botName;
+    }
+
+    public String getBotType() {
+        return botType;
+    }
+
+    public void setBotType(String botType) {
+        this.botType = botType;
     }
 
     public String getBotDesc() {

@@ -1,5 +1,7 @@
 package com.hello.chatbot.api.domain;
 
+import com.hello.chatbot.common.data.BotEventType;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -29,6 +31,18 @@ public class BotEvents implements Serializable{
 
     @Column(name="subscrpition", nullable = false, columnDefinition = "int default 0")
     private int subscription;
+
+    @Column(name = "event_desc", nullable = false)
+    private String eventDesc;
+
+    @Column(name = "event_seq", columnDefinition = "int default 0")
+    private int eventSeq;
+
+    @ManyToOne(targetEntity = BotMenu.class)
+    @JoinColumn(name = "menu_id", nullable = true)
+    private BotMenu menu;
+
+
 
     public int getId() {
         return id;
@@ -76,5 +90,29 @@ public class BotEvents implements Serializable{
 
     public void setSubscription(int subscription) {
         this.subscription = subscription;
+    }
+
+    public String getEventDesc() {
+        return eventDesc;
+    }
+
+    public void setEventDesc(String eventDesc) {
+        this.eventDesc = eventDesc;
+    }
+
+    public int getEventSeq() {
+        return eventSeq;
+    }
+
+    public void setEventSeq(int eventSeq) {
+        this.eventSeq = eventSeq;
+    }
+
+    public BotMenu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(BotMenu menu) {
+        this.menu = menu;
     }
 }
