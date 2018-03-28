@@ -8,6 +8,4 @@ public interface EventService {
     ChatBotApiMessage createEvent(ChatBotClientMessage message);
 
     ChatBotApiMessage modifyEvent(ChatBotClientMessage message);
-
-    ChatBotApiMessage getMenuList(int botId);
 }

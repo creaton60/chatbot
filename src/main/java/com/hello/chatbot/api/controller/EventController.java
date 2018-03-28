@@ -29,14 +29,4 @@ public class EventController {
 
         return eventService.modifyEvent(message);
     }
-
-    @GetMapping(produces = "application/json", value = CHATBOT_EVENT_MENU)
-    public ChatBotApiMessage getChatBotMenuList(@PathVariable int version,
-                                                @PathVariable int botId){
-
-        return eventService.getMenuList(botId);
-    }
-
-
-
 }

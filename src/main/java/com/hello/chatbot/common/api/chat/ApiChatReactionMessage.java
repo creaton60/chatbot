@@ -16,6 +16,12 @@ public class ApiChatReactionMessage extends ChatBotApiMessage{
     @JsonProperty("eventId")
     private int eventId;
 
+    @JsonProperty("eventSeq")
+    private int eventSeq;
+
+    @JsonProperty("menuId")
+    private int menuId;
+
     @JsonProperty("reactions")
     private List<ApiChatInfoMessage> reactionList;
 
@@ -41,5 +47,21 @@ public class ApiChatReactionMessage extends ChatBotApiMessage{
 
     public void setReactionList(List<ApiChatInfoMessage> reactionList) {
         this.reactionList = reactionList;
+    }
+
+    public int getEventSeq() {
+        return eventSeq;
+    }
+
+    public void setEventSeq(int eventSeq) {
+        this.eventSeq = eventSeq;
+    }
+
+    public int getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(int menuId) {
+        this.menuId = menuId;
     }
 }

@@ -18,7 +18,7 @@ public class IndexController {
     private String dataSource;
 
     @GetMapping(produces = "application/json" , value = CHATBOT_INDEX)
-    public String getServerInfo(HttpServletRequest request) throws UnknownHostException {
+    public StringBuffer getServerInfo(HttpServletRequest request) throws UnknownHostException {
 
             StringBuffer returnMessage = new StringBuffer();
 
@@ -37,9 +37,10 @@ public class IndexController {
             returnMessage.append("Locale : ");
             returnMessage.append(request.getLocale());
             returnMessage.append("\n");
-            returnMessage.append("Content : " + dataSource);
+            returnMessage.append("Content : ");
+            returnMessage.append(dataSource);
 
-            return returnMessage.toString();
+            return returnMessage;
     }
 
 }

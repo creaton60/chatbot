@@ -12,6 +12,8 @@ public enum ClientMessageType {
     MESSAGE_ACTION_MODIFY(ClientValues.VALUE_ACTION_MODIFY),
     MESSAGE_CARD_CREATE(ClientValues.VALUE_CARD_CREATE),
     MESSAGE_CARD_DETAIL_CREATE(ClientValues.VALUE_CARD_DETAIL_CREATE),
+    MESSAGE_MENU_CREATE(ClientValues.VALUE_MENU_CREATE),
+    MESSAGE_MENU_MODIFY(ClientValues.VALUE_MENU_MODIFY),
     MESSAGE_CHAT_EVENT(ClientValues.VALUE_CHAT_EVENT);
 
     private String type;
@@ -33,6 +35,8 @@ public enum ClientMessageType {
         public static final String VALUE_ACTION_MODIFY="modifyAction";
         public static final String VALUE_CARD_CREATE="createCard";
         public static final String VALUE_CARD_DETAIL_CREATE="createDetailCard";
+        public static final String VALUE_MENU_CREATE="createMenu";
+        public static final String VALUE_MENU_MODIFY="modifyMenu";
         public static final String VALUE_CHAT_EVENT="chatEvent";
 
 
