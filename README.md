@@ -1,7 +1,7 @@
 # chatbot
-Chatbot based in Spring Akka
-Chatbot Builder Api Server 
-And Test ChatBot Chat Message
+* Chatbot based in Spring Akka
+* Chatbot Builder Api Server 
+* Test ChatBot Chat Message
 
 ## Usage
 ### Gradle
