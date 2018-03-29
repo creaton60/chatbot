@@ -5,8 +5,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.hello.chatbot.common.client.ChatBotClientMessage;
+import com.hello.chatbot.common.client.ClientMessageType;
 
-@JsonTypeName
+@JsonTypeName(ClientMessageType.ClientValues.VALUE_NEW_BOT)
 public class ClientCreateBotMessage extends ChatBotClientMessage{
 
     @JsonProperty("name")

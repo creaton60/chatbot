@@ -1,8 +1,9 @@
 package com.hello.chatbot.api.domain;
 
+import com.hello.chatbot.common.data.BotActionType;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity(name = "cb_actions")
 public class BotActions implements Serializable{
@@ -22,6 +23,9 @@ public class BotActions implements Serializable{
     @ManyToOne(targetEntity = BotEvents.class)
     @JoinColumn(name = "event_id", nullable = false)
     private BotEvents event;
+
+    @Column(name = "action_context")
+    private String context;
 
     public int getActionId() {
         return actionId;
@@ -51,7 +55,16 @@ public class BotActions implements Serializable{
         return event;
     }
 
-    public void setEvent(BotEvents event) {
+    public void setEvent(BotEvents event)
+    {
         this.event = event;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
     }
 }

@@ -21,6 +21,12 @@ public class BotCardDetail implements Serializable{
     @Column(name = "card_detail_desc")
     private String desc;
 
+    @Column(name = "card_image_path")
+    private String imagePath;
+
+    @Column(name = "card_direction" , nullable = false, columnDefinition = "int default 0")
+    private int direction;
+
     public int getDetailId() {
         return detailId;
     }
@@ -51,5 +57,21 @@ public class BotCardDetail implements Serializable{
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public int getDirection() {
+        return direction;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

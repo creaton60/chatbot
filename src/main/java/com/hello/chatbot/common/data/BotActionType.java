@@ -1,4 +1,4 @@
-package com.hello.chatbot.api.domain;
+package com.hello.chatbot.common.data;
 
 public enum BotActionType {
     TEXT,
