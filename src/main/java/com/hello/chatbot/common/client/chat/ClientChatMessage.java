@@ -24,6 +24,12 @@ public class ClientChatMessage extends ChatBotClientMessage{
     @JsonProperty("text")
     private String text;
 
+    @JsonProperty("button")
+    private int buttonId;
+
+    @JsonProperty("card")
+    private int cardId;
+
     public int getBotId() {
         return botId;
     }
@@ -60,7 +66,24 @@ public class ClientChatMessage extends ChatBotClientMessage{
         return text;
     }
 
-    public void setText(String text) {
+    public void setText(String text)
+    {
         this.text = text;
+    }
+
+    public int getButtonId() {
+        return buttonId;
+    }
+
+    public void setButtonId(int buttonId) {
+        this.buttonId = buttonId;
+    }
+
+    public int getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(int cardId) {
+        this.cardId = cardId;
     }
 }

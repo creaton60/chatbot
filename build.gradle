@@ -51,4 +51,7 @@ dependencies {
 	//Guava
 	compile 'com.google.guava:guava:24.1-jre'
 
+	//AspectJ (for Transactional annotation)
+	compile 'org.aspectj:aspectjweaver:1.8.2'
+
 }

@@ -20,31 +20,32 @@ public class MenuController {
     public ChatBotApiMessage createMenu(@PathVariable int version,
                                         @Valid @RequestBody ChatBotClientMessage message){
 
-        return null;
+        return menuService.createMenu(message);
     }
 
     @PutMapping(produces = "application/json", value = CHATBOT_MENU_MODIFY)
     public ChatBotApiMessage updateMenu(@PathVariable int version,
                                         @Valid @RequestBody ChatBotClientMessage message){
-        return null;
+        return menuService.updateMenu(message);
     }
 
     @GetMapping(produces = "application/json", value = CHATBOT_MENU_LIST)
-    public ChatBotApiMessage getMenuList(@PathVariable int version){
+    public ChatBotApiMessage getMenuList(@PathVariable int version,
+                                         @PathVariable int botId){
 
-        return null;
+        return menuService.getMenuList(botId);
     }
 
     @GetMapping(produces = "application/json", value = CHATBOT_MENU_INFO)
     public ChatBotApiMessage getMenuInfo(@PathVariable int version,
-                                         @PathVariable int botId){
-        return null;
+                                         @PathVariable int menuId){
+        return menuService.getMenuInfo(menuId);
     }
 
     @DeleteMapping(produces = "application/json", value = CHATBOT_MENU_DELETE)
     public ChatBotApiMessage deleteMenu(@PathVariable int version,
-                                        @PathVariable int botId){
-        return null;
+                                        @PathVariable int menuId){
+        return menuService.deleteMenu(menuId);
     }
 
 }

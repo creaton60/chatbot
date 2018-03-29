@@ -48,6 +48,7 @@ public class BotServiceImpl implements BotService{
         }
     }
 
+    @Transactional
     @Override
     public ChatBotApiMessage updateChatBot(ChatBotClientMessage message) {
         if(message instanceof ClientModifyBotMessage){
@@ -128,6 +129,7 @@ public class BotServiceImpl implements BotService{
         }
     }
 
+    @Transactional
     @Override
     public ChatBotApiMessage withDrawChatBot(int botId) {
         Bots bot = botRepository.findOne(botId);
@@ -148,5 +150,19 @@ public class BotServiceImpl implements BotService{
             return null;
         }
 
+    }
+
+    @Override
+    public Bots getChatBot(int botId) {
+        Bots bot = botRepository.findOne(botId);
+
+        return bot;
+    }
+
+    @Override
+    public Bots getChatBotWithName(String botName) {
+        List<Bots> bot = botRepository.findByBotName(botName);
+
+        return bot.get(0);
     }
 }

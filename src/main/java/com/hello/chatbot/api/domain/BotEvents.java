@@ -39,8 +39,16 @@ public class BotEvents implements Serializable{
     private int eventSeq;
 
     @ManyToOne(targetEntity = BotMenu.class)
-    @JoinColumn(name = "menu_id", nullable = true)
+    @JoinColumn(name = "menu_id")
     private BotMenu menu;
+
+    @ManyToOne(targetEntity = BotButtons.class)
+    @JoinColumn(name = "button_id")
+    private BotButtons button;
+
+    @ManyToOne
+    @JoinColumn(name = "card_id")
+    private BotCards card;
 
 
 
@@ -114,5 +122,21 @@ public class BotEvents implements Serializable{
 
     public void setMenu(BotMenu menu) {
         this.menu = menu;
+    }
+
+    public BotButtons getButton() {
+        return button;
+    }
+
+    public void setButton(BotButtons button) {
+        this.button = button;
+    }
+
+    public BotCards getCard() {
+        return card;
+    }
+
+    public void setCard(BotCards card) {
+        this.card = card;
     }
 }
