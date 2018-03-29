@@ -1,5 +1,6 @@
 package com.hello.chatbot.common.client.action;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.hello.chatbot.common.client.ChatBotClientMessage;
 import com.hello.chatbot.common.client.ClientMessageType;
@@ -8,13 +9,17 @@ import com.hello.chatbot.common.data.BotActionType;
 @JsonTypeName(ClientMessageType.ClientValues.VALUE_ACTION_MODIFY)
 public class ClientModifyActionMessage extends ChatBotClientMessage{
 
+    @JsonProperty("actionId")
     private int actionId;
 
-    private BotActionType actionType;
+    @JsonProperty("actionName")
+    private String actionName;
 
+    @JsonProperty("context")
     private String context;
 
-    public int getActionId() {
+    public int getActionId()
+    {
         return actionId;
     }
 
@@ -22,12 +27,12 @@ public class ClientModifyActionMessage extends ChatBotClientMessage{
         this.actionId = actionId;
     }
 
-    public BotActionType getActionType() {
-        return actionType;
+    public String getActionName() {
+        return actionName;
     }
 
-    public void setActionType(BotActionType actionType) {
-        this.actionType = actionType;
+    public void setActionName(String actionName) {
+        this.actionName = actionName;
     }
 
     public String getContext() {

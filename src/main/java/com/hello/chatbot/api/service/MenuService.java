@@ -1,5 +1,6 @@
 package com.hello.chatbot.api.service;
 
+import com.hello.chatbot.api.domain.BotMenu;
 import com.hello.chatbot.common.api.ChatBotApiMessage;
 import com.hello.chatbot.common.client.ChatBotClientMessage;
 
@@ -11,5 +12,9 @@ public interface MenuService {
 
     ChatBotApiMessage getMenuInfo(int menuId);
 
+    ChatBotApiMessage getMenuList(int botId);
 
+    BotMenu getMenu(int menuId);
+
+    ChatBotApiMessage deleteMenu(int menuId);
 }

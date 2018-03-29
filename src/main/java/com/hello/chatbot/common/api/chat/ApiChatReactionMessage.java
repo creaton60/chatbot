@@ -2,6 +2,7 @@ package com.hello.chatbot.common.api.chat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.google.common.base.MoreObjects;
 import com.hello.chatbot.common.api.ApiMessageType;
 import com.hello.chatbot.common.api.ChatBotApiMessage;
 
@@ -63,5 +64,16 @@ public class ApiChatReactionMessage extends ChatBotApiMessage{
 
     public void setMenuId(int menuId) {
         this.menuId = menuId;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("botId", getBotId())
+                .add("eventId", getEventId())
+                .add("reactionList", getReactionList())
+                .add("eventSeq" , getEventSeq())
+                .add("menuId", getMenuId())
+                .toString();
     }
 }

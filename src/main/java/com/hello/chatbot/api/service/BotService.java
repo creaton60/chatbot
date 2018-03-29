@@ -1,5 +1,6 @@
 package com.hello.chatbot.api.service;
 
+import com.hello.chatbot.api.domain.Bots;
 import com.hello.chatbot.common.api.ChatBotApiMessage;
 import com.hello.chatbot.common.client.ChatBotClientMessage;
 
@@ -14,4 +15,8 @@ public interface BotService {
     ChatBotApiMessage getChatBotList();
 
     ChatBotApiMessage withDrawChatBot(int botId);
+
+    Bots getChatBot(int botId);
+
+    Bots getChatBotWithName(String botName);
 }
