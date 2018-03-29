@@ -1,5 +1,7 @@
 # chatbot
-Chatbot based in Spring  Akka
+Chatbot based in Spring Akka
+Chatbot Builder Api Server 
+And Test ChatBot Chat Message
 
 ## Usage
 ### Gradle
@@ -43,6 +45,12 @@ dependencies {
 ## Built With
 
 * [Gradle](https://gradle.org/) - Dependency Management
+
+## Wiki
+
+* Please Read This Project Wiki
+
+##
 
 ## Authors
 
