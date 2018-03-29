@@ -12,6 +12,13 @@ import javax.validation.Valid;
 
 import static com.hello.chatbot.api.constants.RequestURL.*;
 
+/**
+ * This class is api controller for chatbot basic control
+ * This controller main service is BotService {@link BotService}
+ * And Return Message Format Just Only ChatBotApiMessage
+ *
+ * @author creaton60
+ */
 @RestController
 public class BotController {
     private final Logger LOG = LoggerFactory.getLogger(BotController.class);

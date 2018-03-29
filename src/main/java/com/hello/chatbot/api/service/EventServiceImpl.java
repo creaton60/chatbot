@@ -118,7 +118,11 @@ public class EventServiceImpl implements EventService{
 
         Random rand = new Random();
 
-        int index = rand.nextInt(events.size());
+        int size = events.size();
+
+        System.out.println(size);
+
+        int index = rand.nextInt(size);
 
         return events.get(index);
     }

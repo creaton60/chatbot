@@ -13,6 +13,13 @@ import javax.validation.Valid;
 
 import static com.hello.chatbot.api.constants.RequestURL.CHATBOT_CHAT_EVENT;
 
+/**
+ * This controller is used to client request reaction
+ *
+ * This controller return message format is only ChatBotApiMessage {@link ChatBotApiMessage}
+ *
+ * @author creaton60
+ */
 @RestController
 public class ChatController {
 

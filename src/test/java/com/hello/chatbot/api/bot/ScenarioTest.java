@@ -1,13 +1,13 @@
 package com.hello.chatbot.api.bot;
 
 import com.hello.chatbot.api.domain.BotEvents;
+import com.hello.chatbot.api.domain.BotMenu;
 import com.hello.chatbot.api.domain.Bots;
-import com.hello.chatbot.api.service.ActionService;
-import com.hello.chatbot.api.service.BotService;
-import com.hello.chatbot.api.service.EventService;
-import com.hello.chatbot.api.service.MenuService;
+import com.hello.chatbot.api.service.*;
+import com.hello.chatbot.common.client.ChatBotClientMessage;
 import com.hello.chatbot.common.client.action.ClientCreateActionMessage;
 import com.hello.chatbot.common.client.bot.ClientCreateBotMessage;
+import com.hello.chatbot.common.client.chat.ClientChatMessage;
 import com.hello.chatbot.common.client.event.ClientCreateEventMessage;
 import com.hello.chatbot.common.client.menu.ClientCreateMenuMessage;
 import com.hello.chatbot.common.data.BillType;
@@ -39,10 +39,13 @@ public class ScenarioTest {
     @Autowired
     private ActionService actionService;
 
+    @Autowired
+    private ChatService chatService;
+
     private String[][] himessage = {
-            {"안녕?" , "안녕하세요"},
-            {"안녕", "안녕"},
-            {"뭐해?", "그냥 쉬고 있어요~"}
+            {"Hi" , "Hello"},
+            {"Hi", "Hi"},
+            {"What are you doing?", "just rest~"}
     };
 
 
@@ -96,6 +99,7 @@ public class ScenarioTest {
 
     }
 
+    @Ignore
     @Test
     public void testCreateAction(){
         Bots bots = botService.getChatBotWithName("Tester2");
@@ -105,22 +109,91 @@ public class ScenarioTest {
 
         List<ClientCreateActionMessage> list = doClientActionList(event.getId());
 
-
-        System.out.println(list.size());
+        for(ClientCreateActionMessage message :  list){
+            actionService.createAction(message);
+        }
     }
 
+    @Ignore
     @Test
     public void testCreateOpenEvent(){
 
+        Bots bots = botService.getChatBotWithName("Tester2");
+
+        ClientCreateEventMessage defaultEvent = new ClientCreateEventMessage();
+        defaultEvent.setBotId(bots.getBotId());
+        defaultEvent.setEventDesc("Test Default open Event");
+        defaultEvent.setEventName("test chatbot Open");
+        defaultEvent.setEventSeq(0);
+        defaultEvent.setMenuId(0);
+        defaultEvent.setEventType(BotEventType.OPEN);
+
+        eventService.createEvent(defaultEvent);
     }
 
+    @Ignore
+    @Test
+    public void testCreateButtonEvent() {
+        Bots bots = botService.getChatBotWithName("Tester2");
+
+        ClientCreateEventMessage defaultEvent = new ClientCreateEventMessage();
+        defaultEvent.setBotId(bots.getBotId());
+        defaultEvent.setEventDesc("Test Default Button Event");
+        defaultEvent.setEventName("test chatbot Button");
+        defaultEvent.setEventSeq(0);
+        defaultEvent.setMenuId(0);
+        defaultEvent.setEventType(BotEventType.BUTTON);
+
+        eventService.createEvent(defaultEvent);
+    }
+
+    @Ignore
     @Test
     public void testCreateLeaveEvent(){
+        Bots bots = botService.getChatBotWithName("Tester2");
+
+        ClientCreateEventMessage defaultEvent = new ClientCreateEventMessage();
+        defaultEvent.setBotId(bots.getBotId());
+        defaultEvent.setEventDesc("Test Default Leave Event");
+        defaultEvent.setEventName("test chatbot Button");
+        defaultEvent.setEventSeq(0);
+        defaultEvent.setMenuId(0);
+        defaultEvent.setEventType(BotEventType.LEAVE);
+
+        eventService.createEvent(defaultEvent);
 
     }
 
+    @Ignore
+    @Test
+    public void testCreateCardEvent(){
+        Bots bots = botService.getChatBotWithName("Tester2");
+
+        ClientCreateEventMessage defaultEvent = new ClientCreateEventMessage();
+        defaultEvent.setBotId(bots.getBotId());
+        defaultEvent.setEventDesc("Test Default Card Event");
+        defaultEvent.setEventName("test chatbot Card");
+        defaultEvent.setEventSeq(0);
+        defaultEvent.setMenuId(0);
+        defaultEvent.setEventType(BotEventType.CARD);
+
+        eventService.createEvent(defaultEvent);
+    }
+
+    @Ignore
     @Test
     public void testCreateMenuEvent(){
+        Bots bots = botService.getChatBotWithName("Tester2");
+
+        ClientCreateEventMessage defaultEvent = new ClientCreateEventMessage();
+        defaultEvent.setBotId(bots.getBotId());
+        defaultEvent.setEventDesc("Test Default Menu Event");
+        defaultEvent.setEventName("test chatbot Menu");
+        defaultEvent.setEventSeq(1);
+        defaultEvent.setMenuId(4);
+        defaultEvent.setEventType(BotEventType.MENU);
+
+        eventService.createEvent(defaultEvent);
 
     }
 
@@ -133,6 +206,7 @@ public class ScenarioTest {
             message.setActionName(himessage[i][0]);
             message.setContext(himessage[i][1]);
             message.setActionType(BotActionType.TEXT);
+            message.setEventId(eventId);
 
             list.add(message);
         }
@@ -143,7 +217,14 @@ public class ScenarioTest {
 
     @Test
     public void testExecScenario(){
+        ClientChatMessage message = new ClientChatMessage();
+        message.setBotId(3);
+        message.setText("Hi");
+        message.setEventSeq(0);
+        message.setMenuId(0);
+        message.setEventType(BotEventType.TEXT);
 
+        System.out.println(chatService.processChatEvent(message));
     }
 
 }

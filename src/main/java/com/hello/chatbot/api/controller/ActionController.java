@@ -11,6 +11,14 @@ import javax.validation.Valid;
 import static com.hello.chatbot.api.constants.RequestURL.CHATBOT_ACTION_CREATE;
 import static com.hello.chatbot.api.constants.RequestURL.CHATBOT_ACTION_MODIFY;
 
+/**
+ *
+ * This class is api controller for event reaction
+ * This controller main service is ActionService {@link ActionService}
+ * And Return Message Format Just Only ChatBotApiMessage
+ *
+ * @author creaton60
+ */
 @RestController
 public class ActionController {
 

@@ -38,6 +38,15 @@ public class ChatServiceImpl implements ChatService{
     private CardService cardService;
 
 
+    /**
+     * This method is used to send message client for chat request
+     *
+     * This logic find by event using client send information
+     * if event exist reaction is all of action data in that event
+     *
+     * @param message {@link ClientChatMessage}
+     * @return message {@link ApiChatReactionMessage}
+     */
     @Transactional
     @Override
     public ChatBotApiMessage processChatEvent(ChatBotClientMessage message) {

@@ -2,6 +2,7 @@ package com.hello.chatbot.common.api.chat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.google.common.base.MoreObjects;
 import com.hello.chatbot.common.api.ApiMessageType;
 import com.hello.chatbot.common.api.ChatBotApiMessage;
 import com.hello.chatbot.common.data.BotActionType;
@@ -51,5 +52,14 @@ public class ApiChatInfoMessage extends ChatBotApiMessage{
 
     public void setActionContext(String actionContext) {
         this.actionContext = actionContext;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("actionId", getActionId())
+                .add("actionType", getActionType())
+                .add("actionContext", getActionContext())
+                .toString();
     }
 }

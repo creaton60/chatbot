@@ -25,6 +25,12 @@ public class ActionServiceImpl implements ActionService{
     @Autowired
     private ActionRepository actionRepository;
 
+    /**
+     * This method is used to create action by client request
+     *
+     * @param message {@link ClientCreateActionMessage}
+     * @return {@link ChatBotApiMessage}
+     */
     @Transactional
     @Override
     public ChatBotApiMessage createAction(ChatBotClientMessage message) {
@@ -53,6 +59,13 @@ public class ActionServiceImpl implements ActionService{
         }
     }
 
+
+    /**
+     * This method is used to update action by client request
+     *
+     * @param message {@link ClientModifyActionMessage}
+     * @return {@link ChatBotApiMessage}
+     */
     @Transactional
     @Override
     public ChatBotApiMessage updateAction(ChatBotClientMessage message) {
@@ -85,6 +98,7 @@ public class ActionServiceImpl implements ActionService{
             return null;
         }
     }
+
 
     @Override
     public List<BotActions> getActionList(BotEvents event) {
